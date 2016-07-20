@@ -1,4 +1,4 @@
-package harley.cats
+package harley.cats.monoid
 
 import cats._
 import cats.std.all._

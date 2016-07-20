@@ -5,6 +5,8 @@ import cats.kernel.Semigroup
 import org.scalatest.{Matchers, WordSpec}
 
 /**
+  * 결합법칙에 만족하도록 구현해줘야 함
+  *
   * Created by Harley on 2016. 7. 18..
   */
 class SemigroupSpec extends WordSpec with Matchers {
