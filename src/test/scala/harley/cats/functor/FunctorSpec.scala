@@ -1,6 +1,6 @@
-package harley.cats
+package harley.cats.functor
 
-import cats.Functor
+import cats._
 import cats.implicits._
 import org.scalatest.{Matchers, WordSpec}
 
@@ -11,8 +11,8 @@ class FunctorSpec extends WordSpec with Matchers {
 
   "Functor" should {
     "map length" in {
-      Functor[Option].map(Option("Hello"))(_.length) shouldBe (Some(5))
-      Functor[Option].map(None: Option[String])(_.length) shouldBe (None)
+      Functor[Option].map(Option("Hello"))(_.length) should be(Some(5))
+      Functor[Option].map(None: Option[String])(_.length) should be(None)
     }
 
     "lift" in {
