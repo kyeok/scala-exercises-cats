@@ -1,3 +1,4 @@
+<pre>
                                  ,----,            
                                ,/   .`|            
   ,----..     ,---,          ,`   .'  : .--.--.    
@@ -13,8 +14,6 @@
 |   :    / |  | ,'           '---'      `--'---'   
  \   \ .'  `--''                                   
   `---`                                            
-                                                   
-                                                   
-                                                   
+</pre>
 - https://www.scala-exercises.org/cats 를 해봅니다.
 - https://github.com/typelevel/cats
