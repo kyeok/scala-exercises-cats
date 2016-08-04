@@ -6,7 +6,7 @@ import cats.syntax.all._
 import org.scalatest.{Matchers, WordSpec}
 
 /**
-  * Semigroup의 기능에 empty가 추가로 들어간 구조
+  * Semigroup 의 기능에 empty가 추가로 들어간 구조
   *
   * 생각해보기!
   * sequence하기 진행 시킬 수 밖에 없는 것들... 왼쪽부터 오른쪽으로 순차적으로 더 한다고 하면? 느림
@@ -37,4 +37,6 @@ class MonoidSpec extends WordSpec with Matchers {
     val l = List(1, 2, 3, 4, 5)
     l.foldMap(i => (i, i.toString)) should be(15, "12345")
   }
+
+
 }

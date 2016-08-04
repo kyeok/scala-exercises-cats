@@ -1,12 +1,19 @@
 package harley.cats.apply
 
-import cats.Apply
+import cats._
 import cats.std.all._
 import cats.syntax.all._
 import org.scalatest.{Matchers, WordSpec}
 
 /**
   * 어랏. 이 테스트 제대로 안 돈다. 무조건 다 Passed라고 나옴
+  *
+  * apply는 함수제공자, 도구
+  *
+  * f : box or function
+  * ff : box에 들어있는 함수
+  * fa : box에 들어있는 A
+  *
   * Created by Harley on 2016. 7. 20..
   */
 class ApplySpec extends WordSpec with Matchers {
@@ -25,6 +32,8 @@ class ApplySpec extends WordSpec with Matchers {
       Apply[Option].ap(Some(double))(None) should be(None)
       Apply[Option].ap(None)(Some(1)) should be(None)
       Apply[Option].ap(None)(None) should be(None)
+
+
     }
 
     "variants AP" in {
@@ -49,14 +58,29 @@ class ApplySpec extends WordSpec with Matchers {
       val option3 = option2 |@| Option.empty[Int]
 
       option2 map addArity2 should be(Some(3))
-      option3 map addArity3 should be(Some(3))
+      option3 map addArity3 should be(Option.empty[Int])
 
-      option2 apWith Some(addArity2) should be(890)
-      option3 apWith Some(addArity3) should be()
+      option2 apWith Some(addArity2) should be(Some(3))
+    }
 
-      option2.tupled should be()
-      option3.tupled should be()
 
+  }
+
+  "apply" should {
+    "test" in {
+      println(Functor[List].map(List(1, 2, 3))(x => List(x)))
+      //map A => B
     }
   }
+
+  "harley ap" should {
+    "test" in {
+      def foo = (a: Int, b: Int) => a + b
+      println(Apply[Option].ap2(Some(foo))(Some(1), Some(2)))
+
+      //def ap2[A, B, Z](ff: F[(A, B) => Z])(fa: F[A], fb: F[B]): F[Z] =
+      //Apply[Int].ap2(Int(foo))(Int(1), Int(2))
+    }
+  }
+
 }
